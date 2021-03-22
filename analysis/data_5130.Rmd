@@ -1,0 +1,39 @@
+---
+title: "data_5130"
+author: "bendsen"
+date: "2021-03-22"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+On this page we show have we have created the data we work with on the main page. <br><br>
+We read in the NOVANA dataset
+```{r, eval=FALSE}
+cover <- read.csv("alledata-cover.csv")
+
+frekvens <- read.csv("alledata-frekvens.csv")
+
+abiotiske <- read.csv("alledata-abiotiske.csv")
+```
+
+We are only interested in the terhabtype = 5130. We get this subset for each of three dataframes in the following way:
+```{r, eval = FALSE}
+cover <- cover[abiotiske$terhabtype == "{5130}",]
+frekvens <- frekvens[abiotiske$terhabtype == "{5130}",]
+abiotiske <- abiotiske[abiotiske$terhabtype == "{5130}",]
+```
+
+Lastly we save these new dataframes.
+
+```{r, eval = FALSE}
+write.csv(cover, file = "cover_data_5130.csv", row.names=FALSE)
+write.csv(frekvens, file = "frekvens_data_5130.csv", row.names=FALSE)
+write.csv(abiotiske, file = "abiotiske_data_5130.csv", row.names=FALSE)
+```
+
+
+
+
+
