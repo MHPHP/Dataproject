@@ -1,20 +1,28 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 
 
 A function to plot a variable against the shanon index.
 
 
 
+```{r}
+```
 
 
 ```{r, include=FALSE}
 data_5130 <- read.csv("data/data_5130.csv")
+library(tidyverse)
 ```
 
 
 
-```{r, include=FALSE}
-gradiant_plot <- function(index, variable) {
-library(tidyverse)
+
+```{r}
+gradient_plot <- function(index, variable) {
 missing = (variable != "mv") 
 
 index <- index[missing]
@@ -28,6 +36,6 @@ ggplot(mapping = aes(x = index, y = variable)) +
 ```
 
 ```{r}
-gradiant_plot(data_5130$shanon_index_v2, data_5130$pHjord)
+gradient_plot(data_5130$shanon_index_v2, data_5130$pHjord)
 ```
 

@@ -65,3 +65,17 @@ shanon_index_v2 <- function(cover, freq) {
   out$shannon <- shanon_list
   return(out)
 }
+
+
+gradient_plot <- function(index, variable) {
+
+  missing = (variable != "mv") 
+  
+  index <- index[missing]
+  variable <- variable[missing]
+  
+  variable <-  as.numeric(variable)
+  ggplot(mapping = aes(x = index, y = variable)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE)
+}
