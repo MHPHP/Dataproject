@@ -75,7 +75,7 @@ gradient_plot <- function(index, variable) {
   variable <- variable[missing]
   
   variable <-  as.numeric(variable)
-  ggplot(mapping = aes(x = index, y = variable)) +
+  ggplot(mapping = aes(x = variable, y = index)) +
     geom_point() +
     geom_smooth(method = "lm", se = FALSE)
 }
